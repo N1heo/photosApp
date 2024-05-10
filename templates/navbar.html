@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a href="{% url 'photos:index'%}" class="navbar-brand">
+            CapyCut
+        </a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expand="false" aria-label="Toggle Navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav">
+                {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a href="{% url 'user:profile' request.user.slug %}" class="nav-link">
+                            Profile
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'photos:upload' request.user.slug %}" class="nav-link">
+                            Upload Image
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'album:create-album' request.user.slug %}" class="nav-link">
+                            Create Album
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'album:albums' request.user.slug %}" class="nav-link">
+                            Albums
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'photoedit' %}" class="nav-link">
+                            PhotoEdit
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{% url 'user:logout' %}" class="nav-link">
+                            Logout
+                        </a>
+                    </li>
+
+                {% else %}
+                    <li class="nav-item">
+                        <a href="{% url 'user:login' %}" class="nav-link">
+                            Login
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'user:register' %}" class="nav-link">
+                            Register
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ profile_user.username }} Album's
+{% endblock title %}
+
+{% block content %}
+    {% for album in albums %}
+        <div class="card text-center" style="width: 18rem;">
+           {% with first_image=album.album_images.first %}
+           <img src="{{ first_image.image.url }}" alt="" class="card-img-top">
+           {% endwith %} 
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{ album.name }}
+                </h5>
+                <a href="{{ album.get_absolute_url }}" class="card-link">
+                    {{ album.name }}
+                </a>
+                {% if request.user.username == album.user.username %}
+                    <a href="{% url 'album:delete-album' request.user.slug album.pk %}" class="card-link">
+                        Delete Album
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    {% empty %}
+        <p>
+            There are no albums yet.
+        </p>
+    {% endfor %}
+{% endblock content %}

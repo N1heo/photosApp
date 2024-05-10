@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home
+{% endblock title %}
+
+{% block content %}
+    <div class="row">
+        {% for image in images %}
+            <div class="card mb-4 mt-4" style="width: 18rem;">
+                <img src="{{ image.image.url }}" alt="{{ image.name }}" class="img-card-top">
+                <div class="card-body text-center">
+                    <h5 class="card-title">
+                        {{ image.name }}
+                    </h5>
+                    <p class="card-text">
+                        Uploaded by: <a href="{{ image.user.get_absolute_url }}" class="card-link"> {{ image.user.username }}</a>
+                    </p>
+                    <p class="card-text">
+                        Likes: {{ image.likes.count }}
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
