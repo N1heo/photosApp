@@ -1,1 +1,1 @@
-Software Engineering Project "Photos app"
+# Software Engineering Project "Photos app"
