@@ -641,12 +641,12 @@
 
                   <img id="originalImage" src="https://source.unsplash.com/sqL5xItVgpg">
 
-                  <p class="intro-text">-></p>
+{#                  <p class="intro-text">-></p>#}
 
-                  <button class="button btn-bar" onclick="toggleMirror()">Mirror Image</button>
-                  <button class="button btn-bar" onclick="toggleFlip()">Flip Image</button>
+{#                  <button class="button btn-bar" onclick="toggleMirror()">Mirror Image</button>#}
+{#                  <button class="button btn-bar" onclick="toggleFlip()">Flip Image</button>#}
                   <div class="dropdown">
-                        <button class="button btn-bar" onclick="toggleShapes()">Clip Path Shapes</button>
+{#                        <button class="button btn-bar" onclick="toggleShapes()">Clip Path Shapes</button>#}
                         <div class="dropdown-shapes">
                             <div class="shapes-div">
                                 <div class="shapes" data-shape="none"><p>None</p><span></span></div>
@@ -866,7 +866,7 @@
 
                      <figure class="clip-path">
                         <figure class="overlay-2">
-                            {% if obj %}
+                            {% if obj.image.url != None %}
                               <figure class="overlay-1">
                                 <img id="image" alt="none" src={{ obj.image.url }}>
                               </figure>
@@ -890,6 +890,7 @@
               <span id="full-size-text">Open as a Full Size Image to take as a ScreenShot</span>
 
 
+
               <!-- Start of Full Size Image Area -->
               <div id="image-full-size">
                  <div class="background">
@@ -898,7 +899,7 @@
                       <figure class="clip-path">
                         <figure class="overlay-2">
                           <figure class="overlay-1">
-                              {% if obj %}
+                              {% if obj.image.url != None %}
                               <figure class="overlay-1">
                                 <img id="image" alt="none" src={{ obj.image.url }}>
                               </figure>

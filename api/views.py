@@ -1,7 +1,9 @@
 from rest_framework import generics
+
+from photo_edit.models import Photo_edit
 from . import serializers
 from user.models import User
-from photos.models import Image, ImageLikes
+from photos.models import Image
 from album.models import Album, AlbumImage
 
 class ListCreateUsersView(generics.ListCreateAPIView):
@@ -35,3 +37,7 @@ class ListCreateAlbumImagesView(generics.ListCreateAPIView):
 class RetrieveUpdateDestroyAlbumImageView(generics.RetrieveUpdateDestroyAPIView):
     queryset = AlbumImage.objects.all()
     serializer_class = serializers.AlbumImageSerializer
+
+class ListCreatePhotoEditView(generics.ListCreateAPIView):
+    queryset = Photo_edit.objects.all()
+    serializer_class = serializers.PhotoEdit

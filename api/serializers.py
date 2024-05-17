@@ -7,6 +7,8 @@ __all__ = [
 ]
 
 from rest_framework import serializers
+
+from photo_edit.models import Photo_edit
 from user.models import User
 from photos.models import Image, ImageLikes
 from album.models import Album, AlbumImage
@@ -67,6 +69,17 @@ class AlbumSerializer(serializers.ModelSerializer):
             "creation_date",
             "user",
         ]
+
+class PhotoEdit(serializers.ModelSerializer):
+    """Serializer class for the album model."""
+
+    class Meta:
+        model = Photo_edit
+        fields = [
+            "image",
+            "imagename"
+        ]
+
 
 
 class AlbumImageSerializer(serializers.ModelSerializer):

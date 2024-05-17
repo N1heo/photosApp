@@ -26,5 +26,5 @@ urlpatterns = [
     path("", include("photos.urls")),
     path("", include("album.urls")),
     path("api/", include("api.urls")),
-    path("photo_edit/", include("photo_edit.urls"))
+    path("photo_edit/", include("photo_edit.urls")),
 ]

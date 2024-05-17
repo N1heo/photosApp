@@ -11,12 +11,12 @@ class AlbumCreationForm(forms.ModelForm):
 
         fields = [
             "name",
-            "status",
+
         ]
 
         widgets = {
             "name": text_input,
-            "status": select_input,
+
         }
 
 

@@ -6,7 +6,7 @@ from photo_edit.models import Photo_edit
 
 
 # Create your views here.
-def say_hello(request):
+def edit_image(request):
     if request.method == 'POST':
         imgmdl = Photo_edit()
         img = request.FILES.get('img')
